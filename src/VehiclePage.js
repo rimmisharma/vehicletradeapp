@@ -9,10 +9,11 @@ const VehiclePage = ({ dealerId }) => {
     const fetchVehicles = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:8080/vehicle/vehicles?id=${dealerId}`);
+        const response = await fetch(`http://localhost:8080/vehicle/vehicles/brands?dealerID=${dealerId}`);
         if (response.ok) {
           const data = await response.json();
           setVehicles(data);
+          console.log(data);
         } else {
           throw new Error('Error fetching vehicles');
         }
@@ -40,9 +41,7 @@ const VehiclePage = ({ dealerId }) => {
       {vehicles.length > 0 ? (
         <ul>
           {vehicles.map((vehicle, index) => (
-            <li key={index}>
-              Brand: {vehicle.name}, Model: {vehicle.modelname}, Year: {vehicle.price}
-            </li>
+            <li key={index}>{vehicle}</li>
           ))}
         </ul>
       ) : (

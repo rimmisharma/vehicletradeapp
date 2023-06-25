@@ -33,7 +33,7 @@ const DealerPage = () => {
           <p>{dealer.city}</p>
           <p>{dealer.mobileno}</p>
           <p>{dealer.pincode}</p>
-          {/* Pass dealer and id props to VehiclePage */}
+          {/* Pass dealer id as a prop to VehiclePage */}
           <VehiclePage dealerId={id} />
         </div>
       )}
