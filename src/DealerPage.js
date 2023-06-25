@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import VehiclePage from './VehiclePage';
 
 const DealerPage = () => {
   const { id } = useParams();
@@ -32,7 +33,8 @@ const DealerPage = () => {
           <p>{dealer.city}</p>
           <p>{dealer.mobileno}</p>
           <p>{dealer.pincode}</p>
-          {/* add more dealer details here */}
+          {/* Pass dealer and id props to VehiclePage */}
+          <VehiclePage dealerId={id} />
         </div>
       )}
     </div>
