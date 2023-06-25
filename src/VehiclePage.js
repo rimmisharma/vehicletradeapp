@@ -13,7 +13,6 @@ const VehiclePage = ({ dealerId }) => {
         if (response.ok) {
           const data = await response.json();
           setVehicles(data);
-          console.log(data)
         } else {
           throw new Error('Error fetching vehicles');
         }
@@ -41,7 +40,9 @@ const VehiclePage = ({ dealerId }) => {
       {vehicles.length > 0 ? (
         <ul>
           {vehicles.map((vehicle, index) => (
-            <li key={index}>{vehicle.brand}</li>
+            <li key={index}>
+              Brand: {vehicle.name}, Model: {vehicle.modelname}, Year: {vehicle.price}
+            </li>
           ))}
         </ul>
       ) : (
